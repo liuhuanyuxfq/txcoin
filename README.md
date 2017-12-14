@@ -4,4 +4,4 @@
 - 以太坊学习
 - 超级账本学习
 - 比特币学习
-- 以太币交易平台
+- [以太币交易平台](/ether_exchange/resourcelink.md)
