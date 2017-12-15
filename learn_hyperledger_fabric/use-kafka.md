@@ -1,6 +1,6 @@
 
-##1.修改docker-compose.yaml配置
-###dc-orderer-kafka.yaml
+## 1.修改docker-compose.yaml配置
+### dc-orderer-kafka.yaml
 	version: '2'
 	
 	networks:
@@ -169,7 +169,7 @@
 	      - 9050:7050
 	    networks:
 	      - byfn
-###dc-orderer-base.yaml
+### dc-orderer-base.yaml
 	version: '2'
 	
 	services:
@@ -193,7 +193,7 @@
 	      - ../crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp:/var/hyperledger/orderer/msp
 	    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
 	    command: orderer
-###dc-orderer-kafka-base.yaml
+### dc-orderer-kafka-base.yaml
 	version: '2'
 	
 	services:
@@ -213,9 +213,9 @@
 	      - KAFKA_MESSAGE_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
 	      - KAFKA_REPLICA_FETCH_MAX_BYTES=103809024 # 99 * 1024 * 1024 B
 	      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
-###注释掉docker-compose-cli.yaml中，orderer.example.com相关部分
-##2.修改configtx.yaml
-###将`Orderer:`部分做如下修改：
+### 注释掉docker-compose-cli.yaml中，orderer.example.com相关部分
+## 2.修改configtx.yaml
+### 将`Orderer:`部分做如下修改：
     OrdererType: kafka
 
     Addresses:
@@ -231,15 +231,15 @@
             - kafka2:11092
             - kafka3:12092
 
-##3.启动网络
-###(1)清理环境
+## 3.启动网络
+### (1)清理环境
     ./byfn.sh -m down
-###(2)生成密码材料
+### (2)生成密码材料
     ./byfn.sh -m generate
 	../bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/achannel.tx -channelID achannel
-###(3)启动网络
+### (3)启动网络
     docker-compose -f dc-orderer-kafka.yaml -f docker-compose-cli-kafka.yaml -f docker-compose-couch.yaml up -d
-##4.创建通道、加入通道、部署链码、实例化链码、初始化链码，封装在kafka.sh中
+## 4.创建通道、加入通道、部署链码、实例化链码、初始化链码，封装在kafka.sh中
     docker exec cli bash ./scripts/kafka.sh
-##5.参考资源
+## 5.参考资源
 [配置fabric-1.0的kafka模式](https://www.2cto.com/os/201708/671592.html)

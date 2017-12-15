@@ -1,5 +1,5 @@
-#一、编译智能合约
-##1.编写智能合约，具体代码如下：
+# 一、编译智能合约
+## 1.编写智能合约，具体代码如下：
     contract Proof
     {
 	struct FileDetails{
@@ -28,9 +28,9 @@
     	return (files[fileHash].timestamp, files[fileHash].owner);
     	}
     }
-##2.编译智能合约
+## 2.编译智能合约
 使用智能合约的在线编译器https://ethereum.github.io/browser-solidity/编译上面的代码
-##3.修改编译器代码
+## 3.修改编译器代码
 最终代码如下：
 
     var proofContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"fileHash","type":"string"}],...","type":"event"}]);

@@ -1,10 +1,10 @@
-#一、环境构建
-##1.连接到交互式环境
+# 一、环境构建
+## 1.连接到交互式环境
 	geth attach /root/eth/data/p0/geth.ipc
-##2.启动挖矿
+## 2.启动挖矿
 	miner.start()
-#二、编译智能合约
-##1.编写智能合约，具体代码如下：
+# 二、编译智能合约
+## 1.编写智能合约，具体代码如下：
 	contract HelloWorld
 	{
 	    address creator;
@@ -36,12 +36,12 @@
 	            suicide(creator);  // kills this contract and sends remaining funds back to creator
 	    }
 	}
-##2.编译智能合约
+## 2.编译智能合约
 使用智能合约的在线编译器https://ethereum.github.io/browser-solidity/编译上面的代码
 ![](2.png)
-###注意：第一行的`pragma solidity ^0.4.0;`必须保留，用于指定版本
-##3.修改编译器代码
-###点击网页上的Details按钮，在web3Deploy框里点选复制代码，得到代码如下：
+### 注意：第一行的`pragma solidity ^0.4.0;`必须保留，用于指定版本
+## 3.修改编译器代码
+### 点击网页上的Details按钮，在web3Deploy框里点选复制代码，得到代码如下：
 
     var _greeting = /* var of type string here */ ;
     var browser_ballot_sol_helloworldContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_newgreeting","type":"string"}],"name":"setGreeting","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_greeting","type":"string"}],"payable":true,"stateMutability":"payable","type":"constructor"}]);
@@ -57,19 +57,19 @@
      console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
     }
      })
-###修改第一行：
+### 修改第一行：
     var _greeting = "Hello World" ;   //你想打招呼的内容
-###修改第八行，gas设置：
+### 修改第八行，gas设置：
 	gas: '470000'
-#三、部署和执行代码
-##1.解锁账户
+# 三、部署和执行代码
+## 1.解锁账户
 	personal.unlockAccount(eth.accounts[0],"1q2w3e")
-##2.在交互式环境中将修改后的代码粘贴进去,并等待出块
+## 2.在交互式环境中将修改后的代码粘贴进去,并等待出块
 ![](3.png)
-##3.运行合约
+## 3.运行合约
 	browser_ballot_sol_helloworld.greet()
 ![](4.png)
-#四、参考资料
+# 四、参考资料
 solidity编译：[https://solidity.readthedocs.io/en/develop/using-the-compiler.html]()
 
 交互式环境管理API：[https://github.com/ethereum/go-ethereum/wiki/Management-APIs]()
