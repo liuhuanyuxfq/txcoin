@@ -26,8 +26,6 @@
 - [以太坊系列之一: 以太坊RLP用法-以太坊源码学习](https://www.cnblogs.com/baizx/p/6928622.html)
 - [汪小明以太坊连载（一）](http://wangxiaoming.com/blog/2016/05/23/ethereum-1/)
 - [以太坊智能合约Hello World示例程序](http://www.cnblogs.com/huyouhengbc/p/5922093.html)
-- [转移以太坊Mist存储区块位置-英文](https://ethereum.stackexchange.com/questions/3622/my-c-drive-in-my-windows-pc-is-almost-full-how-can-i-change-both-geth-and-mist)
-- [转移以太坊Mist存储区块位置-中文](http://ethfans.org/topics/410)
 - []()
 - []()
 - []()
