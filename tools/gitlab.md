@@ -1,5 +1,5 @@
 # GitLab安装和使用
-## 一、安装
+## 安装
 ### 1.安装和配置必要的依赖
 在Ubuntu 16.04上（推荐），下面的命令还会打开系统防火墙中的HTTP和SSH访问。
 
@@ -17,10 +17,6 @@
 ### 3.浏览器打开URL并登录
 在第一次访问时，您将被重定向到密码重置屏幕。 提供初始管理员帐户的密码，您将被重定向回登录屏幕。 使用默认帐户的用户名root登录。
 详见[See our documentation for detailed instructions on installing and configuration]().
-## 二、使用
-### 1.创建新项目
-
-
 
 ## 参考资源
 - [官网安装指南](https://about.gitlab.com/installation/#ubuntu)

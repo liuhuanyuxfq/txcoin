@@ -16,7 +16,7 @@ genesis.json内容如下：
 
     {
       "config": {
-		    "chainId": 314590,
+		    "chainId": 171208,
 		    "homesteadBlock": 0,
 		    "eip155Block": 0,
 		    "eip158Block": 0
@@ -49,9 +49,9 @@ genesis.json内容如下：
     geth init genesis.json
 可以在初始化时指定data目录：
 
-    geth --datadir ./data/p0 --networkid 314590 --port 61910 --rpcport 8200 init genesis.json
+    geth --datadir ./data/p0 --networkid 171208 --port 61910 --rpcport 8200 init genesis.json
 ## 2.启动
-	geth --datadir ./data/p0 --networkid 314590 --port 61910 --rpcport 8200
+	geth --datadir ./data/p0 --networkid 171208 --port 61910 --rpcport 8200
 ## 3.在另一个窗口下启动交互式环境
     geth attach /root/eth/data/p0/geth.ipc
 ## 4.在交互式环境下进行如下操作
@@ -102,14 +102,16 @@ genesis.json内容如下：
 ## 1.清理环境：
 	rm -rf /root/eth/data
 ## 2.启动第一个节点
-	geth --datadir ./data/p0 --networkid 314590 --port 61910 --rpcport 8200  init genesis.json
-    geth --datadir ./data/p0 --networkid 314590 --port 61910 --rpcport 8200
+	geth --datadir ./data/p0 --networkid 171208 --port 61910 --rpcport 8200  init genesis.json
+    geth --datadir ./data/p0 --networkid 171208 --port 61910 --rpcport 8200
 	admin.nodeInfo.enode  #获取节点实例的enode url
 ## 3.启动第二个节点
 	geth --datadir ./data/p1 init genesis.json
-	geth --datadir ./data/p1 --networkid 314590 --port 61911 --rpcport 8201 --bootnodes "enode://454de4856f01253dc70fb6120be9f491183027e7b3a6ed7f44524bb2923fe27842475f6647556883330e147c79788266c09daa2ff6f3bbcddc02b66d1fccfaaf@192.168.180.140:61910"
+	geth --datadir ./data/p1 --networkid 171208 --port 61911 --rpcport 8201 --bootnodes "enode://454de4856f01253dc70fb6120be9f491183027e7b3a6ed7f44524bb2923fe27842475f6647556883330e147c79788266c09daa2ff6f3bbcddc02b66d1fccfaaf@192.168.180.140:61910" 
 上面的命令中,--bootndoes 是设置当前节点启动后,直接通过设置--bootndoes 的值来链接第一个节点, --bootnoedes 的值可以通过在第一个节的命令行中,输入:admin.nodeInfo.enode命令打印出来.
 也可以不设置 --bootnodes, 直接启动,启动后进入命令行, 通过命令admin.addPeer(enodeUrlOfFirst Instance)把它作为一个peer添加进来.
+
+禁掉私链以外的网络，每个节点启动时多加两个参数：–nodiscover –nat “none”
 ## 4.分别在两个节点创建账户：
 	personal.newAccount("1q2w3e")
 ## 5.peer0启动挖矿：
