@@ -23,7 +23,7 @@ genesis.json内容如下：
    		 },
       "alloc"  : {},
       "coinbase"   : "0x0000000000000000000000000000000000000000",
-      "difficulty" : "0x80000",
+      "difficulty" : "0x4ffffff",
       "extraData"  : "",
       "gasLimit"   : "0x2fefd8",
       "nonce"  : "0x0000000000000042",
@@ -37,6 +37,7 @@ genesis.json内容如下：
 | ------ |:------:|
 | alloc| 用来预置账号以及账号的以太币数量|
 | coinbase| 矿工的账号，随便填|
+| difficulty| 难度，该值越大，出块越慢|
 | extraData| 附加信息，随便填|
 | gasLimit| 该值设置对GAS的消耗总量限制，用来限制区块能包含的交易信息总和。|
 | nonce| nonce就是一个64位随机数，用于挖矿，注意他和mixhash的设置需要满足以太坊的Yellow paper, 4.3.4. Block Header Validity, (44)章节所描述的条件。|
@@ -102,16 +103,23 @@ genesis.json内容如下：
 ## 1.清理环境：
 	rm -rf /root/eth/data
 ## 2.启动第一个节点
-	geth --datadir ./data/p0 --networkid 171208 --port 61910 --rpcport 8200  init genesis.json
-    geth --datadir ./data/p0 --networkid 171208 --port 61910 --rpcport 8200
+	geth --datadir ./data init genesis.json
+    nohup geth --datadir ./data --networkid 171208 --port 30301 --rpcport 8200 > geth.log 2>&1 &
 	admin.nodeInfo.enode  #获取节点实例的enode url
 ## 3.启动第二个节点
-	geth --datadir ./data/p1 init genesis.json
-	geth --datadir ./data/p1 --networkid 171208 --port 61911 --rpcport 8201 --bootnodes "enode://454de4856f01253dc70fb6120be9f491183027e7b3a6ed7f44524bb2923fe27842475f6647556883330e147c79788266c09daa2ff6f3bbcddc02b66d1fccfaaf@192.168.180.140:61910" 
+	geth --datadir ./data init genesis.json
+	nohup geth --datadir ./data --networkid 171208 --port 30301 --rpcport 8200 > geth.log 2>&1 & 
 上面的命令中,--bootndoes 是设置当前节点启动后,直接通过设置--bootndoes 的值来链接第一个节点, --bootnoedes 的值可以通过在第一个节的命令行中,输入:admin.nodeInfo.enode命令打印出来.
 也可以不设置 --bootnodes, 直接启动,启动后进入命令行, 通过命令admin.addPeer(enodeUrlOfFirst Instance)把它作为一个peer添加进来.
 
 禁掉私链以外的网络，每个节点启动时多加两个参数：–nodiscover –nat “none”
+
+**注意：当后续节点启动后，但没有发现之前的节点时，即`admin.peers`返回结果为空时，可以使用**
+
+    admin.addPeer("enode://95a74a9875e36f5c0e07ac4ac33ace61fa4b0d5d8de4beb04c3f612e4f26187c3974ab678384cd4e8d052d4100f74e4b0a825bc17a1968af3993207ba359f2af@192.168.180.158:61910")
+**来添加节点**
+
+**注意：！！！！节点的时间必须一致，否则同步区块会失败！！！！！**
 ## 4.分别在两个节点创建账户：
 	personal.newAccount("1q2w3e")
 ## 5.peer0启动挖矿：
