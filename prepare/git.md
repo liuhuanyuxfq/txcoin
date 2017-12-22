@@ -1,3 +1,10 @@
+## Git安装
+### centos：
+	yum install git
+### ubuntu：
+	apt-get install git
+### 验证安装：
+	git --version
 ## Git常用命令
 - 创建版本库：`git init`
 - 把文件添加到仓库的暂存区：`git add <filename>`
