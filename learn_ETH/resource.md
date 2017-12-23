@@ -32,3 +32,4 @@
 - [以太坊(Ethereum ETH)是如何计算难度的](https://zhuanlan.zhihu.com/p/28830859)
 - [https://consensys.net/]()
 - [https://www.stateofthedapps.com/]()
+- [以太坊挖矿](http://ethfans.org/topics/345)
