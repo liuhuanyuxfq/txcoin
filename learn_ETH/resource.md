@@ -16,6 +16,7 @@
 - [干货 | Vitalik: 25分钟认识以太坊](http://ethfans.org/posts/Ethereum-in-25-minites-vision-2017-1)
 - [嫌BTC贵？ENS一个换一套别墅！](http://ethfans.org/posts/670)
 - [ETH，王者当立！](http://ethfans.org/posts/669)
+- [**以太坊区块浏览**](https://etherscan.io/)
 - [**以太坊术语表**](http://ethfans.org/wikis/%E6%9C%AF%E8%AF%AD%E8%A1%A8)
 - [**以太坊Web3 JavaScript-API**](https://github.com/ethereum/wiki/wiki/JavaScript-API)
 - [**以太坊admin API**](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)
@@ -32,3 +33,4 @@
 - [以太坊(Ethereum ETH)是如何计算难度的](https://zhuanlan.zhihu.com/p/28830859)
 - [https://consensys.net/]()
 - [https://www.stateofthedapps.com/]()
+- [以太坊挖矿](http://ethfans.org/topics/345)
