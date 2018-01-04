@@ -188,7 +188,7 @@ Cryptogen使用包含网络拓扑的文件`crypto-config.yaml`，并允许我们
     gulp marbles3
 ### 在本地浏览器打开网址进行操作
     http://192.168.180.157:3001
-# 十couch-db的使用
+# 十、couch-db的使用
 如果您选择将fabric-couchdb容器端口映射到主机端口，请确保您知道安全性影响。 在开发环境中映射端口使CouchDB REST API可用，并允许通过CouchDB Web界面（Fauxton）对数据库进行可视化。 生产环境可能不会实施端口映射，以限制对CouchDB容器的外部访问。
 
 
@@ -234,3 +234,6 @@ Cryptogen使用包含网络拓扑的文件`crypto-config.yaml`，并允许我们
 #npm国内镜像设置
     npm config set registry https://registry.npm.taobao.org
 设置好后通过`npm config get registry`查看当前的registry
+
+# 参考资源
+- [使用Fabric Node SDK进行Invoke和Query](https://www.cnblogs.com/studyzy/p/7524245.html)
