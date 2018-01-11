@@ -1,2 +1,0 @@
-- [Go开发IDE安装](./Go-IDE-install.md)
-- [gitlab安装](./gitlab.md)
